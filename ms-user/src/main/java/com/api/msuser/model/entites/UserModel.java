@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.model.entites;
+package com.api.msuser.model.entites;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -15,8 +15,10 @@ public class UserModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
+    @Column(nullable = false)
+    private String nome;
     @Column(nullable = false,unique = true)
-    private String userName;
+    private String cpf;
     @Column(nullable = false)
     private String password;
     @ManyToMany

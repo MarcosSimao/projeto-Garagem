@@ -1,8 +1,7 @@
-package com.api.parkingcontrol.model.entites;
+package com.api.msuser.model.entites;
 
-import com.api.parkingcontrol.model.enuns.RoleName;
+import com.api.msuser.model.enuns.RoleName;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;

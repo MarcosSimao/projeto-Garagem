@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.model.enuns;
+package com.api.msuser.model.enuns;
 
 public enum RoleName {
     ROLE_ADMIN,
