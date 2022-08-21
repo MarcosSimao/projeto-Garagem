@@ -24,8 +24,6 @@ public class ParkingSpotDto {
     @NotBlank
     private String corCarro;
     @NotBlank
-    private String nomeresponsavel;
-    @NotBlank
     private String apartamento;
     @NotBlank
     private String bloco;

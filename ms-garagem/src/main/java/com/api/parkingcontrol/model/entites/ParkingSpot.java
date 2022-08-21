@@ -32,9 +32,7 @@ public class ParkingSpot implements Serializable {
     private String corCarro;
     @Column(nullable = false)
     private LocalDateTime dataRegistro;
-    @Column(nullable = true,length = 130)
-    private String nomeresponsavel;
-    @Column(nullable = false,length = 30)
+    @Column(nullable = false,length = 30,unique = true)
     private String apartamento;
     @Column(nullable = false,length = 30)
     private String bloco;
@@ -45,7 +43,6 @@ public class ParkingSpot implements Serializable {
         this.marcaCarro=parkingSpotDto.getMarcaCarro();
         this.modeloCar=parkingSpotDto.getModeloCar();
         this.corCarro=parkingSpotDto.getCorCarro();
-        this.nomeresponsavel=parkingSpotDto.getNomeresponsavel();
         this.apartamento=parkingSpotDto.getApartamento();
         this.bloco=parkingSpotDto.getBloco();
     }
