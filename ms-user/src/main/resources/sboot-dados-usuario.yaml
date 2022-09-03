@@ -1,0 +1,80 @@
+swagger: "2.0"
+info:
+  version: '1.0.0'
+  title: 'Api de Usuario'
+  description: 'Essa api , tem como objetivo buscar usuarios cadastrados'
+  
+consumes:
+  - application/json
+  
+produces:
+  - application/json
+  
+tags:
+  - name: 'Buscar Usuario'
+  
+host: localhost:8080
+basePath: /usuario
+schemes:
+  - http
+  - https
+  
+paths:
+   /usuario/{cpf}:
+     get:
+       tags:
+           - 'Buscar Usuario'
+       summary: "buscar Ususario por cpf"
+       operationId: "userFindBycpf"
+       description: "esta operacão tem como objetivo , buscar usuario existente por cpf"
+       parameters:
+         - in: "path"
+           name: "cpf"
+           type: "string"
+           required: true
+           description: "Numero do Cpf"
+       responses:
+         200:
+           description: "ok"
+           schema:
+             $ref: "#/definitions/UserModelRepresetation"
+         400:
+           description: "consulta invalida! "
+         401:
+           description: "não possui credenciais de autenticação válidas para o recurso de destino"
+         404:
+           description: "Usuario nao encontrado "
+         500:
+           description: "Erro interno ao tentar consultar Usuario"
+
+definitions:
+  UserModelRepresetation:
+      type: "object"
+      properties:
+        userId:
+          type: "string"
+          description: "identificador do usuario"
+        nome:
+          type: "string"
+          description: "nome do Usuario"
+        cpf:
+          type: "string"
+          description: "cpf do usuario"
+        password:
+          type: "string"
+          description: "senha do usuario"
+        roles:
+          type: array
+          items:
+            $ref: "#/definitions/RoleModelRepresetation"
+  RoleModelRepresetation:
+      type: "object"
+      properties:
+        roleId:
+          type: "string"
+          description: "indentificador da role"
+        roleName:
+          type: "string"
+          description: "nome da role"
+         
+          

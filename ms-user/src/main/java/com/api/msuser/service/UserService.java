@@ -1,12 +1,8 @@
 package com.api.msuser.service;
 
-import com.api.msuser.MsUserApplication;
-import com.api.msuser.model.dto.RoleDto;
-import com.api.msuser.model.dto.UserDto;
 import com.api.msuser.model.entites.RoleModel;
 import com.api.msuser.model.entites.UserModel;
 import com.api.msuser.model.enuns.RoleName;
-import com.api.msuser.model.exceptions.ObjectInternalErrorExcption;
 import com.api.msuser.model.exceptions.ObjectNotFoundException;
 import com.api.msuser.repository.RoleRepository;
 import com.api.msuser.repository.UserRepository;
@@ -33,12 +29,12 @@ public class UserService {
         user.getRoles().add(role);
     }
 
-    public UserDto findByCpf(String cpf) {
+    public UserModel findByCpf(String cpf) {
         log.info("entrada de cpf {}", cpf);
         var userModel = Optional.ofNullable(repository.findByCpf(cpf)
                 .orElseThrow(() -> new ObjectNotFoundException("cpf " + cpf + " nao encontrado")));
         log.info("checando se usuario esta cadastrado {} ", userModel);
-        return modelMapper.map(userModel.get(), UserDto.class);
+        return userModel.get();
     }
 
 }

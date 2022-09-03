@@ -12,7 +12,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "tb_role")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class RoleModel implements Serializable {
     @Id

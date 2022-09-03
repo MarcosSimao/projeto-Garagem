@@ -14,7 +14,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "tb_user")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class UserModel implements Serializable {
     @Id
