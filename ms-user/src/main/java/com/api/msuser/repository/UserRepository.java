@@ -12,6 +12,6 @@ import java.util.UUID;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, UUID> {
     @Query("select u from UserModel u JOIN FETCH u.roles WHERE u.cpf=:cpf")
-    Optional<UserModel>findByCpf(@Param("cp") String cpf);
+    Optional<UserModel>findByCpf(@Param("cpf") String cpf);
 
 }

@@ -1,7 +1,6 @@
-package com.api.msuser.service;
+package com.api.msuser.serviceTeste;
 
 import com.api.msuser.MsUserApplication;
-import com.api.msuser.model.dto.RoleDto;
 import com.api.msuser.model.entites.RoleModel;
 import com.api.msuser.model.enuns.RoleName;
 import com.api.msuser.repository.RoleRepository;
@@ -20,18 +19,15 @@ import java.util.UUID;
 public class RoleService {
     private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;
-    public RoleModel save(RoleDto roleDto){
-       return roleRepository.save(modelMapper.map(roleDto,RoleModel.class));
+    public RoleModel save(RoleModel role){
+       return roleRepository.save(role);
     }
 
     public static void main( String ... args){
         ApplicationContext applicationContext = new SpringApplicationBuilder(MsUserApplication.class)
                 .web(WebApplicationType.NONE)
                         .run(args);
-
         RoleService servico = applicationContext.getBean(RoleService.class);
-        servico.save(new RoleDto(UUID.randomUUID(),RoleName.ROLE_ADMIN));
-
-
+        servico.save(new RoleModel(UUID.randomUUID(),RoleName.ROLE_ADMIN));
     }
 }

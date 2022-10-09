@@ -1,6 +1,5 @@
 package com.api.msuser.model.entites;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +19,7 @@ public class UserModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
     @Column(nullable = false)
+    
     private String nome;
     @Column(nullable = false,unique = true)
     private String cpf;

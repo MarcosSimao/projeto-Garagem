@@ -3,21 +3,15 @@ info:
   version: '1.0.0'
   title: 'Api de Usuario'
   description: 'Essa api , tem como objetivo buscar usuarios cadastrados'
-  
-consumes:
-  - application/json
-  
-produces:
-  - application/json
-  
-tags:
-  - name: 'Buscar Usuario'
-  
-host: localhost:8080
-basePath: /usuario
+
+host: 'localhost:8080'
+consume:
+  -application/json
 schemes:
   - http
   - https
+tags:
+  - name: 'Buscar Usuario'
   
 paths:
    /usuario/{cpf}:
@@ -26,6 +20,8 @@ paths:
            - 'Buscar Usuario'
        summary: "buscar Ususario por cpf"
        operationId: "userFindBycpf"
+       produces:
+         - application/json
        description: "esta operacão tem como objetivo , buscar usuario existente por cpf"
        parameters:
          - in: "path"

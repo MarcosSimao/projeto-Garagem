@@ -13,6 +13,7 @@ import java.util.UUID;
 @Table(name = "tb_role")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class RoleModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
